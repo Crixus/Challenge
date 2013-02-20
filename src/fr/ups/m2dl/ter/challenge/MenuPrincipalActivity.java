@@ -1,5 +1,6 @@
 package fr.ups.m2dl.ter.challenge;
 
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
@@ -33,5 +34,14 @@ public class MenuPrincipalActivity extends Activity {
 	/*public void onClickButtonQuitter(MenuItem item) {
 		_mHandler.postDelayed(_stop, 0);
 	}*/
+	
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_settings:
+            	System.exit(RESULT_OK);
+            	return true;
+            }
+            return false;
+     }
 
 }
