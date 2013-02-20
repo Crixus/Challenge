@@ -26,6 +26,10 @@
             android:name="fr.ups.m2dl.ter.challenge.MenuPrincipalActivity"
             android:label="@string/title_activity_menu_principal" >
         </activity>
+        <activity
+            android:name="fr.ups.m2dl.ter.challenge.SensorMagneticExempleActivity"
+            android:label="@string/title_activity_sensor_magnetic_exemple" >
+        </activity>
     </application>
 
 </manifest>

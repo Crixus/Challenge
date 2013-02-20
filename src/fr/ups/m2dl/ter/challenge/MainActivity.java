@@ -5,6 +5,7 @@ import android.os.Vibrator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.SensorManager;
 import android.view.Menu;
 
 public class MainActivity extends Activity {
