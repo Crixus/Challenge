@@ -30,6 +30,10 @@
             android:name="fr.ups.m2dl.ter.challenge.SensorMagneticExempleActivity"
             android:label="@string/title_activity_sensor_magnetic_exemple" >
         </activity>
+        <activity
+            android:name="fr.ups.m2dl.ter.challenge.SensorTemperatureExempleActivity"
+            android:label="@string/title_activity_sensor_temperature_exemple" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,13 +1,18 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MenuPrincipalActivity" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="MAGNETIC SENSOR"
         android:onClick="onClickButtonSensorMagneticExemple" />
+    
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="TEMPERATURE SENSOR"
+        android:onClick="onClickButtonSensorTemperatureExemple" />
 
-</RelativeLayout>
+</LinearLayout>

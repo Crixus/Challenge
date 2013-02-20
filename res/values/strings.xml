@@ -7,5 +7,6 @@
     <string name="title_activity_menu_principal">MenuPrincipalActivity</string>
     <string name="quitter">Quitter</string>
     <string name="title_activity_sensor_magnetic_exemple">SensorMagneticExempleActivity</string>
+    <string name="title_activity_sensor_temperature_exemple">SensorTemperatureExempleActivity</string>
 
 </resources>

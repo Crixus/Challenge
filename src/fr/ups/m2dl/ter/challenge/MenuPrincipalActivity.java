@@ -30,6 +30,12 @@ public class MenuPrincipalActivity extends Activity {
 		finish();
 	}
 	
+	public void onClickButtonSensorTemperatureExemple(View view) {
+		Intent intent = new Intent(MenuPrincipalActivity.this, SensorTemperatureExempleActivity.class);
+		startActivity(intent);
+		finish();
+	}
+	
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_quitter:

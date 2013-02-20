@@ -14,19 +14,23 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int magnetic=0x7f070000;
-        public static final int menu_quitter=0x7f070002;
-        public static final int menu_settings=0x7f070001;
+        public static final int magnetic=0x7f070001;
+        public static final int menu_quitter=0x7f070004;
+        public static final int menu_settings=0x7f070003;
+        public static final int result=0x7f070000;
+        public static final int temperature=0x7f070002;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_menu_principal=0x7f030001;
         public static final int activity_sensor_magnetic_exemple=0x7f030002;
+        public static final int activity_sensor_temperature_exemple=0x7f030003;
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;
         public static final int activity_menu_principal=0x7f060001;
         public static final int activity_sensor_magnetic_exemple=0x7f060002;
+        public static final int activity_sensor_temperature_exemple=0x7f060003;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
@@ -35,6 +39,7 @@ public final class R {
         public static final int quitter=0x7f040004;
         public static final int title_activity_menu_principal=0x7f040003;
         public static final int title_activity_sensor_magnetic_exemple=0x7f040005;
+        public static final int title_activity_sensor_temperature_exemple=0x7f040006;
     }
     public static final class style {
         /** 
