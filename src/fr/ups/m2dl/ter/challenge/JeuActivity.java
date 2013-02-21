@@ -89,7 +89,7 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		String label_action = action;
 		// Si reproduire : label_reprod = mouvement / label_reprod = ""
 		String label_reprod = "";
-		if (action.equals("REPRODUIRE")) {
+		if (action.equals("REPRODUIRE") && !MainActivity.__moteur.is_expert()) {
 			label_reprod = MainActivity.__moteur.mouvementARepeter();
 			//textView label_reprod
 			tvReprod = (TextView) findViewById(R.id.label_reprod);

@@ -63,7 +63,7 @@ public class MenuPrincipalActivity extends Activity {
 	}
 	
 	public void onClickButtonQuitter(View view) {
-		
+		System.exit(RESULT_OK);
 	}
 	
     public boolean onOptionsItemSelected(MenuItem item) {
