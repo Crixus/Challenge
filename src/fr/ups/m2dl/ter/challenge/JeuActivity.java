@@ -120,18 +120,19 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		
 	}
 
-	public void mouvement(String mouvement) {
-		_mp = MediaPlayer.create(this, R.raw.beep_seven);
-		_mp.start();
-		
+	public void mouvement(String mouvement) {		
 		MainActivity.__moteur.prochainMouvement(mouvement);
 		if (!MainActivity.__moteur.is_partieEnCours()) {
+			_mp = MediaPlayer.create(this, R.raw.error);
+			_mp.start();
 			Intent intent = new Intent(JeuActivity.this, GameOverActivity.class);
 			startActivity(intent);
 			finish();
+		} else {
+			_mp = MediaPlayer.create(this, R.raw.beep_seven);
+			_mp.start();
+			afficherFenetre();
 		}
-		MainActivity.__moteur.recapitulatifPartie();
-		afficherFenetre();
 	}
 
 	@Override
