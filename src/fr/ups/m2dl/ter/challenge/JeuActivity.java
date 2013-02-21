@@ -22,6 +22,8 @@ public class JeuActivity extends Activity implements SensorEventListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		setContentView(R.layout.activity_jeu);
+		
 		mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
 		mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 		mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
@@ -76,44 +78,42 @@ public class JeuActivity extends Activity implements SensorEventListener {
 	}
 
 	public void afficherFenetre() {
-		_etat = MainActivity.__moteur.get_etatJoueur();
-		int joueur;
-		TextView tvJoueur;
-		TextView tvAction;
-		TextView tvMouvement;
-		switch(_etat) {
-		case 0:
-			setContentView(R.layout.activity_jeu_enregistrer);	
-			joueur = MainActivity.__moteur.joueurActuel();
-			tvJoueur = (TextView) findViewById(R.id.textViewJoueur);
-			tvJoueur.setText("Joueur: " + joueur);
-			tvAction = (TextView) findViewById(R.id.textViewAction);
-			tvAction.setText("Action: Répéter");
-			
-			String mouvement = MainActivity.__moteur.mouvementARepeter();
-			tvMouvement = (TextView) findViewById(R.id.textViewMvt);
-		 	tvMouvement.setText("Movement: " + mouvement);
-
-			break;
-		case 1:
-			setContentView(R.layout.activity_jeu_enregistrer);
-			joueur = MainActivity.__moteur.joueurActuel();
-			
-			
-			tvJoueur = (TextView) findViewById(R.id.textViewJoueur);
-			tvJoueur.setText("Joueur: " + joueur);
-			tvAction = (TextView) findViewById(R.id.textViewAction);
-			tvAction.setText("Action: Enregistrer");
-
-			break;
+		// Recuperer joueur
+		int joueur = MainActivity.__moteur.joueurActuel();
+		TextView tvReprod;
+		// Generer string label_joueur
+		String label_joueur = "Joueur " + joueur;
+		// Recuperer action
+		String action = MainActivity.__moteur.action();
+		// Generer string label_action
+		String label_action = action;
+		// Si reproduire : label_reprod = mouvement / label_reprod = ""
+		String label_reprod = "";
+		if (action.equals("REPRODUIRE") && !MainActivity.__moteur.is_expert()) {
+			label_reprod = MainActivity.__moteur.mouvementARepeter();
+			//textView label_reprod
+			tvReprod = (TextView) findViewById(R.id.label_reprod);
+			tvReprod.setText(label_reprod);
 		}
+		else {
+			tvReprod = (TextView) findViewById(R.id.label_reprod);
+			tvReprod.setText("");
+		}
+		//textView label_joueur
+		TextView tvJoueur = (TextView) findViewById(R.id.label_joueur);
+		tvJoueur.setText(label_joueur);
+		//textView label_action
+		TextView tvAction = (TextView) findViewById(R.id.label_action);
+		tvAction.setText(label_action);
+		
+		
 	}
 
 	public void mouvement(String mouvement) {
 		System.out.println(mouvement);
 		MainActivity.__moteur.prochainMouvement(mouvement);
 		if (!MainActivity.__moteur.is_partieEnCours()) {
-			Intent intent = new Intent(JeuActivity.this, JeuActivity.class);
+			Intent intent = new Intent(JeuActivity.this, GameOverActivity.class);
 			startActivity(intent);
 			finish();
 		}

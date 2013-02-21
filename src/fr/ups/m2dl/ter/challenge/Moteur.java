@@ -93,6 +93,14 @@ public class Moteur {
 	public int joueurActuel() {
 		return _joueurActuel + 1;
 	}
+	
+	public String action() {
+		if (_etatJoueur == 0) {
+			return "REPRODUIRE";
+		} else {
+			return "AJOUTER";
+		}
+	}
 
 	public String enregistrerMouvement(String mouvement) {
 		_mouvements.add(mouvement);
