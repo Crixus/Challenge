@@ -11,42 +11,42 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int menu=0x7f020001;
-        public static final int splash=0x7f020002;
-        public static final int wait=0x7f020003;
+        public static final int bas=0x7f020000;
+        public static final int droite=0x7f020001;
+        public static final int fleche_bas=0x7f020002;
+        public static final int fleche_droite=0x7f020003;
+        public static final int fleche_gauche=0x7f020004;
+        public static final int fleche_haut=0x7f020005;
+        public static final int game_over=0x7f020006;
+        public static final int gauche=0x7f020007;
+        public static final int haut=0x7f020008;
+        public static final int ic_launcher=0x7f020009;
+        public static final int jeux=0x7f02000a;
+        public static final int menu=0x7f02000b;
+        public static final int splash=0x7f02000c;
+        public static final int vide=0x7f02000d;
+        public static final int wait=0x7f02000e;
     }
     public static final class id {
-        public static final int accelerometer=0x7f080009;
+        public static final int fleche=0x7f080002;
         public static final int label_action=0x7f080001;
         public static final int label_joueur=0x7f080000;
-        public static final int label_reprod=0x7f080002;
-        public static final int menu_quitter=0x7f08000c;
-        public static final int menu_settings=0x7f08000b;
-        public static final int result=0x7f080008;
-        public static final int splash=0x7f08000a;
-        public static final int textViewAction=0x7f080004;
-        public static final int textViewEngMvt=0x7f080007;
-        public static final int textViewJoueur=0x7f080003;
-        public static final int textViewMvt=0x7f080005;
-        public static final int textViewRep=0x7f080006;
+        public static final int menu_quitter=0x7f080005;
+        public static final int menu_settings=0x7f080004;
+        public static final int splash=0x7f080003;
     }
     public static final class layout {
         public static final int activity_game_over=0x7f030000;
         public static final int activity_jeu=0x7f030001;
-        public static final int activity_jeu_enregistrer=0x7f030002;
-        public static final int activity_jeu_repeter=0x7f030003;
-        public static final int activity_main=0x7f030004;
-        public static final int activity_menu_principal=0x7f030005;
-        public static final int activity_sensor_accelerometer_exemple=0x7f030006;
-        public static final int splash=0x7f030007;
+        public static final int activity_main=0x7f030002;
+        public static final int activity_menu_principal=0x7f030003;
+        public static final int splash=0x7f030004;
     }
     public static final class menu {
         public static final int activity_game_over=0x7f070000;
         public static final int activity_jeu=0x7f070001;
         public static final int activity_main=0x7f070002;
         public static final int activity_menu_principal=0x7f070003;
-        public static final int activity_sensor_accelerometer_exemple=0x7f070004;
     }
     public static final class raw {
         public static final int beep_eight=0x7f040000;
@@ -59,24 +59,22 @@ public final class R {
         public static final int beep_ten=0x7f040007;
         public static final int beep_three=0x7f040008;
         public static final int beep_two=0x7f040009;
-        public static final int fond_appli=0x7f04000a;
+        public static final int error=0x7f04000a;
+        public static final int fond_appli=0x7f04000b;
     }
     public static final class string {
         public static final int app_name=0x7f050000;
-        public static final int enregisterMsg=0x7f05000d;
+        public static final int enregisterMsg=0x7f05000a;
         public static final int hello_world=0x7f050001;
+        public static final int menu_principal=0x7f050006;
         public static final int menu_settings=0x7f050002;
-        public static final int mode_expert=0x7f050008;
-        public static final int mode_normal=0x7f050007;
-        public static final int quitter=0x7f05000a;
-        public static final int repeterMsg=0x7f05000e;
-        public static final int test_accelerometer=0x7f050009;
-        public static final int title_activity_game_over=0x7f05000b;
-        public static final int title_activity_jeu=0x7f05000c;
+        public static final int mode_expert=0x7f050005;
+        public static final int mode_normal=0x7f050004;
+        public static final int quitter=0x7f050007;
+        public static final int repeterMsg=0x7f05000b;
+        public static final int title_activity_game_over=0x7f050008;
+        public static final int title_activity_jeu=0x7f050009;
         public static final int title_activity_menu_principal=0x7f050003;
-        public static final int title_activity_sensor_accelerometer_exemple=0x7f050006;
-        public static final int title_activity_sensor_magnetic_exemple=0x7f050004;
-        public static final int title_activity_sensor_temperature_exemple=0x7f050005;
     }
     public static final class style {
         /** 

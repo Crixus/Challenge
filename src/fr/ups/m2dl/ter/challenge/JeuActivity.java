@@ -110,9 +110,6 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		ImageView fleche = (ImageView) findViewById(R.id.fleche);
 
 		if (action.equals("REPRODUIRE") && !MainActivity.__moteur.is_expert()) {
-			tvReprod = (TextView) findViewById(R.id.label_reprod);
-			tvReprod.setText(MainActivity.__moteur.mouvementARepeter());
-
 			fleche.setVisibility(0);
 			
 			int id = 0;
@@ -131,8 +128,6 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		}
 		else {
 			fleche.setVisibility(8);
-			tvReprod = (TextView) findViewById(R.id.label_reprod);
-			tvReprod.setText("");
 		}
 		//textView label_joueur
 		TextView tvJoueur = (TextView) findViewById(R.id.label_joueur);
