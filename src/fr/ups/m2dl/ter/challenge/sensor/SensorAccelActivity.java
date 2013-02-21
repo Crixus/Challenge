@@ -17,6 +17,7 @@ import android.util.Log;
 		private SensorManager mSensorManager;
 		private Sensor mSensor;
 		private String currentMouvement = "No Mouvement";
+		private Boolean pause = false;
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,8 @@ import android.util.Log;
 		}
 
 		private void checkMove(double x, double y, double z){
+			
+			if(pause) return;
 			
 			if (x > 8) {
 				currentMouvement = "Gauche";
@@ -54,12 +57,17 @@ import android.util.Log;
 		}
 		
 		public String getMove(){
+			resetMove();
 			while(currentMouvement == "No Mouvement"){}
 			return currentMouvement;
 		}
 		
 		public void resetMove(){
 			currentMouvement = "No Mouvement";
+		}
+		
+		public void setPause(Boolean pause){
+			this.pause = pause;
 		}
 		
 		public void onSensorChanged(SensorEvent event) {
@@ -69,32 +77,7 @@ import android.util.Log;
 				double y = event.values[1];
 				double z = event.values[2];
 				
-				TextView textview = (TextView) findViewById(R.id.accelerometer);
-				
-//				textview.setText("" + x + "\n" + y + "\n" + z);
 				checkMove ( x,  y,  z);
-//				
-//				if (x > 8) {
-//					TextView result = (TextView) findViewById(R.id.result);
-//					result.setText("Gauche");
-//					
-//				}
-//				
-//				if (x < -8) {
-//					TextView result = (TextView) findViewById(R.id.result);
-//					result.setText("Droite");
-//				}
-//				
-//				if (y > 8) {
-//					TextView result = (TextView) findViewById(R.id.result);
-//					result.setText("Bas");
-//				}
-//				
-//				if (y < -8) {
-//					TextView result = (TextView) findViewById(R.id.result);
-//					result.setText("Haut");
-//				}
-				
 			}
 		}
 
