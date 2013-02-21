@@ -37,21 +37,6 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="fr.ups.m2dl.ter.challenge.SensorMagneticExempleActivity"
-            android:label="@string/title_activity_sensor_magnetic_exemple" 
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name="fr.ups.m2dl.ter.challenge.SensorTemperatureExempleActivity"
-            android:label="@string/title_activity_sensor_temperature_exemple"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="fr.ups.m2dl.ter.challenge.SensorAccelerometerExempleActivity"
-            android:label="@string/title_activity_sensor_accelerometer_exemple" 
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
             android:name="fr.ups.m2dl.ter.challenge.GameOverActivity"
             android:label="@string/title_activity_game_over" 
             android:screenOrientation="portrait">

@@ -5,12 +5,14 @@
     android:background="@drawable/game_over" >
 
      <Button
+        android:textColor="#FFFFFF"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/mode_normal"
         android:onClick="onClickButtonRejouer" />
     
     <Button
+        android:textColor="#FFFFFF"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/menu_principal"
