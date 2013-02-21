@@ -1,5 +1,6 @@
 package fr.ups.m2dl.ter.challenge;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
@@ -9,11 +10,17 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class MenuPrincipalActivity extends Activity {
-
+	
+	MediaPlayer _mp;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_principal);
+		
+		_mp = MediaPlayer.create(this, R.raw.fond_appli);
+		_mp.setLooping(true);
+		_mp.start();
 	}
 
 	@Override
