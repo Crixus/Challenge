@@ -10,14 +10,18 @@ import android.view.Menu;
 
 public class MainActivity extends Activity {
 	
-	static Vibrator vi;
+	static Vibrator __vi;
+	
+	static Moteur __moteur;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		MainActivity.vi = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		MainActivity.__vi = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		MainActivity.__moteur = new Moteur();
+		
 		Intent intent = new Intent(MainActivity.this, MenuPrincipalActivity.class);
 		startActivity(intent);
 		finish();
