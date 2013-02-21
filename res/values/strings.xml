@@ -3,7 +3,7 @@
 
     <string name="app_name">Challenge</string>
     <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_settings">Quitter</string>
     <string name="title_activity_menu_principal">MenuPrincipalActivity</string>
     <string name="title_activity_sensor_magnetic_exemple">SensorMagneticExempleActivity</string>
     <string name="title_activity_sensor_temperature_exemple">SensorTemperatureExempleActivity</string>

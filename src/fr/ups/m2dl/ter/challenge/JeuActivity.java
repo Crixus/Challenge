@@ -1,5 +1,7 @@
 package fr.ups.m2dl.ter.challenge;
 
+
+
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -9,6 +11,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class JeuActivity extends Activity implements SensorEventListener {
@@ -35,7 +39,9 @@ public class JeuActivity extends Activity implements SensorEventListener {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_jeu, menu);
+//		getMenuInflater().inflate(R.menu.activity_jeu, menu);
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.activity_jeu, menu);
 		return true;
 	}
 	
@@ -126,4 +132,13 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		// TODO Auto-generated method stub
 		
 	}
+	
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_settings:
+            	System.exit(RESULT_OK);
+            	return true;
+            }
+            return false;
+     }
 }
