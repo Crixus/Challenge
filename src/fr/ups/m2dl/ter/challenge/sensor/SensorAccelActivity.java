@@ -17,6 +17,7 @@ import android.util.Log;
 		private SensorManager mSensorManager;
 		private Sensor mSensor;
 		private String currentMouvement = "No Mouvement";
+		private Boolean pause = false;
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
@@ -27,18 +28,12 @@ import android.util.Log;
 			mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
 		}
 
-		@Override
-		public boolean onCreateOptionsMenu(Menu menu) {
-			// Inflate the menu; this adds items to the action bar if it is present.
-			getMenuInflater()
-			.inflate(R.menu.activity_sensor_magnetic_exemple, menu);
-			return true;
-		}
-
 		public void onAccuracyChanged(Sensor sensor, int accuracy) {
 		}
 
 		private void checkMove(double x, double y, double z){
+			
+			if(pause) return;
 			
 			if (x > 8) {
 				currentMouvement = "Gauche";
@@ -62,12 +57,17 @@ import android.util.Log;
 		}
 		
 		public String getMove(){
+			resetMove();
 			while(currentMouvement == "No Mouvement"){}
 			return currentMouvement;
 		}
 		
 		public void resetMove(){
 			currentMouvement = "No Mouvement";
+		}
+		
+		public void setPause(Boolean pause){
+			this.pause = pause;
 		}
 		
 		public void onSensorChanged(SensorEvent event) {
@@ -77,8 +77,7 @@ import android.util.Log;
 				double y = event.values[1];
 				double z = event.values[2];
 				
-				TextView textview = (TextView) findViewById(R.id.accelerometer);
-				
+			
 //				textview.setText("" + x + "\n" + y + "\n" + z);
 				checkMove ( x,  y,  z);
 //				
