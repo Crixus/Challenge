@@ -6,13 +6,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="MAGNETIC SENSOR"
-        android:onClick="onClickButtonSensorMagneticExemple" />
-    
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="TEMPERATURE SENSOR"
-        android:onClick="onClickButtonSensorTemperatureExemple" />
+        android:text="ACCELOROMETER SENSOR"
+        android:onClick="onClickButtonSensorAccelerometerExemple" />
 
 </LinearLayout>

@@ -24,14 +24,8 @@ public class MenuPrincipalActivity extends Activity {
 		return true;
 	}
 	
-	public void onClickButtonSensorMagneticExemple(View view) {
-		Intent intent = new Intent(MenuPrincipalActivity.this, SensorMagneticExempleActivity.class);
-		startActivity(intent);
-		finish();
-	}
-	
-	public void onClickButtonSensorTemperatureExemple(View view) {
-		Intent intent = new Intent(MenuPrincipalActivity.this, SensorTemperatureExempleActivity.class);
+	public void onClickButtonSensorAccelerometerExemple(View view) {
+		Intent intent = new Intent(MenuPrincipalActivity.this, SensorAccelerometerExempleActivity.class);
 		startActivity(intent);
 		finish();
 	}
