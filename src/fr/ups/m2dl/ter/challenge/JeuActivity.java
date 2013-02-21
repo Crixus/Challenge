@@ -6,6 +6,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.TextView;
@@ -89,7 +90,8 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		System.out.println(mouvement);
 		MainActivity.__moteur.prochainMouvement(mouvement);
 		if (!MainActivity.__moteur.is_partieEnCours()) {
-			// Intent game over
+			Intent intent = new Intent(JeuActivity.this, JeuActivity.class);
+			startActivity(intent);
 			finish();
 		}
 		afficherFenetre();

@@ -66,25 +66,19 @@ public class Moteur {
 	}
 
 	public void lancerPartie(boolean expert) {
-		Log.v("INFO", "Partie lancée");
 		_mouvements.clear();
 		_mouvementEnCours = _mouvements.size();
 		_expert = expert;
 		_joueurActuel = 0;
 		_etatJoueur = 1;
 		_partieEnCours = true;
-		Log.v("INFO", "Partie initialisée");
 	}
 	
 	public void prochainMouvement(String mouvement) {
-		Log.v("INFO", "Prochain mouvement !");
-		Log.v("INFO", "Mouvements dans liste : " + Arrays.toString(_mouvements.toArray()));
 		if (_partieEnCours) {
 			if (_etatJoueur == 0) {
-				Log.v("INFO", "REPETER !");
 				repeterMouvements(mouvement);
 			} else {
-				Log.v("INFO", "ENREGISTRER !");
 				enregistrerMouvement(mouvement);
 			}
 		} else {
@@ -101,10 +95,7 @@ public class Moteur {
 	}
 
 	public String enregistrerMouvement(String mouvement) {
-		Log.v("INFO", "Avant : "+ Arrays.toString(_mouvements.toArray()));
-		Log.v("INFO", "Ajout de mouvement "+mouvement);
 		_mouvements.add(mouvement);
-		Log.v("INFO", "Apres : "+ Arrays.toString(_mouvements.toArray()));
 		_joueurActuel = (_joueurActuel + 1) % 2;
 		_etatJoueur = 0;
 		_mouvementEnCours = 0;
@@ -112,8 +103,6 @@ public class Moteur {
 	}
 
 	public void repeterMouvements(String mouvement)  {
-		Log.v("INFO", "Liste : "+ Arrays.toString(_mouvements.toArray()));
-		Log.v("INFO", "Mouvement à repeter : " + _mouvements.get(_mouvementEnCours));
 		if (mouvement.equals(_mouvements.get(_mouvementEnCours))) {
 			if (_mouvementEnCours == _mouvements.size() - 1) {
 				_mouvementEnCours = 0;
@@ -128,6 +117,24 @@ public class Moteur {
 
 	public void terminerPartie() {
 		_partieEnCours = false;
+	}
+	
+	public void recapitulatifPartie() {
+		String string = "";
+		if (!_partieEnCours) {
+			string += "La partie est terminée !";
+		} else {
+			string += "C'est au tour de joueur " + joueurActuel() + "\n";
+			string += "Il faut " + ((_etatJoueur == 0) ? "Ajouter un mouvement" : "Répeter les mouvements") + "\n";
+			string += "Les mouvements enregistrés sont : " + Arrays.toString(_mouvements.toArray()) + "\n";
+			if (_etatJoueur == 1) {
+				string += "Le mouvement à reproduire est : " + mouvementARepeter() + "\n";
+			} else {
+				string += "Il faut ajouter un mouvement\n";
+			}
+		}
+		System.out.println(string);
+		Log.v("INFO", string);				
 	}
 
 }
