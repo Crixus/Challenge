@@ -75,12 +75,21 @@ public class JeuActivity extends Activity implements SensorEventListener {
 
 	public void afficherFenetre() {
 		_etat = MainActivity.__moteur.get_etatJoueur();
+		int joueur = MainActivity.__moteur.joueurActuel();
 		switch(_etat) {
 		case 0:
-			setContentView(R.layout.activity_jeu_repeter);			
+			setContentView(R.layout.activity_jeu_repeter);	
+			TextView tvRep = (TextView) findViewById(R.id.textViewRep);
+			tvRep.setText("Joueur " + joueur + " refaites le mouvement");
 			break;
 		case 1:
 			setContentView(R.layout.activity_jeu_enregistrer);
+			TextView tvEnr = (TextView) findViewById(R.id.textViewEng);
+			tvEnr.setText("Joueur " + joueur + " faites un mouvement");
+			
+			String mouvement = MainActivity.__moteur.mouvementARepeter();
+			TextView tvEngMvt = (TextView) findViewById(R.id.textViewEngMvt);
+			tvEngMvt.setText(mouvement);
 			break;
 		}
 	}

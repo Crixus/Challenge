@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="fr.ups.m2dl.ter.challenge.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,27 +25,33 @@
         </activity>
         <activity
             android:name="fr.ups.m2dl.ter.challenge.MenuPrincipalActivity"
-            android:label="@string/title_activity_menu_principal" >
+            android:label="@string/title_activity_menu_principal"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="fr.ups.m2dl.ter.challenge.SensorMagneticExempleActivity"
-            android:label="@string/title_activity_sensor_magnetic_exemple" >
+            android:label="@string/title_activity_sensor_magnetic_exemple" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="fr.ups.m2dl.ter.challenge.SensorTemperatureExempleActivity"
-            android:label="@string/title_activity_sensor_temperature_exemple" >
+            android:label="@string/title_activity_sensor_temperature_exemple"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="fr.ups.m2dl.ter.challenge.SensorAccelerometerExempleActivity"
-            android:label="@string/title_activity_sensor_accelerometer_exemple" >
+            android:label="@string/title_activity_sensor_accelerometer_exemple" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="fr.ups.m2dl.ter.challenge.GameOverActivity"
-            android:label="@string/title_activity_game_over" >
+            android:label="@string/title_activity_game_over" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="fr.ups.m2dl.ter.challenge.JeuActivity"
-            android:label="@string/title_activity_jeu" >
+            android:label="@string/title_activity_jeu" 
+            android:screenOrientation="portrait">
         </activity>
     </application>
 </manifest>
