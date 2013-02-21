@@ -8,7 +8,7 @@
         android:textColor="#FFFFFF"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/mode_normal"
+        android:text="@string/rejouer"
         android:onClick="onClickButtonRejouer" />
     
     <Button

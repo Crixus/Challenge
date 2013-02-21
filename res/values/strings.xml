@@ -7,6 +7,7 @@
     <string name="title_activity_menu_principal">Menu Principal</string>
     <string name="mode_normal">Mode Normal</string>
     <string name="mode_expert">Mode Expert</string>
+    <string name="rejouer">Rejouer</string>
     <string name="menu_principal">Menu Principal</string>
     <string name="quitter">Quitter</string>
     <string name="title_activity_game_over">Game Over</string>
