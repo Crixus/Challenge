@@ -12,13 +12,17 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int splash=0x7f020001;
     }
     public static final class id {
-        public static final int accelerometer=0x7f080002;
-        public static final int menu_quitter=0x7f080004;
-        public static final int menu_settings=0x7f080003;
-        public static final int result=0x7f080001;
-        public static final int textView1=0x7f080000;
+        public static final int accelerometer=0x7f080004;
+        public static final int menu_quitter=0x7f080007;
+        public static final int menu_settings=0x7f080006;
+        public static final int result=0x7f080003;
+        public static final int splash=0x7f080005;
+        public static final int textViewEng=0x7f080000;
+        public static final int textViewEngMvt=0x7f080001;
+        public static final int textViewRep=0x7f080002;
     }
     public static final class layout {
         public static final int activity_game_over=0x7f030000;
@@ -28,6 +32,7 @@ public final class R {
         public static final int activity_main=0x7f030004;
         public static final int activity_menu_principal=0x7f030005;
         public static final int activity_sensor_accelerometer_exemple=0x7f030006;
+        public static final int splash=0x7f030007;
     }
     public static final class menu {
         public static final int activity_game_over=0x7f070000;
