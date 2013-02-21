@@ -1,6 +1,9 @@
 package fr.ups.m2dl.ter.challenge;
 
-import android.R;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -118,12 +121,8 @@ public class JeuActivity extends Activity implements SensorEventListener {
 	}
 
 	public void mouvement(String mouvement) {
-		int random = 7;
-		//_mp = MediaPlayer.create(this, R.raw.)
-		//_mp = MediaPlayer.create(this);
-		//_mp.setLooping(true);
-		//_mp.start();
-		
+		_mp = MediaPlayer.create(this, R.raw.beep_seven);
+		_mp.start();
 		
 		MainActivity.__moteur.prochainMouvement(mouvement);
 		if (!MainActivity.__moteur.is_partieEnCours()) {
