@@ -49,7 +49,17 @@ public final class R {
         public static final int activity_sensor_accelerometer_exemple=0x7f070004;
     }
     public static final class raw {
-        public static final int fond_appli=0x7f040000;
+        public static final int beep_eight=0x7f040000;
+        public static final int beep_five=0x7f040001;
+        public static final int beep_four=0x7f040002;
+        public static final int beep_nine=0x7f040003;
+        public static final int beep_one=0x7f040004;
+        public static final int beep_seven=0x7f040005;
+        public static final int beep_six=0x7f040006;
+        public static final int beep_ten=0x7f040007;
+        public static final int beep_three=0x7f040008;
+        public static final int beep_two=0x7f040009;
+        public static final int fond_appli=0x7f04000a;
     }
     public static final class string {
         public static final int app_name=0x7f050000;
