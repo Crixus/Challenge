@@ -125,9 +125,9 @@ public class Moteur {
 			string += "La partie est terminée !";
 		} else {
 			string += "C'est au tour de joueur " + joueurActuel() + "\n";
-			string += "Il faut " + ((_etatJoueur == 0) ? "Ajouter un mouvement" : "Répeter les mouvements") + "\n";
+			string += "Il faut " + ((_etatJoueur == 1) ? "Ajouter un mouvement" : "Répeter les mouvements") + "\n";
 			string += "Les mouvements enregistrés sont : " + Arrays.toString(_mouvements.toArray()) + "\n";
-			if (_etatJoueur == 1) {
+			if (_etatJoueur == 0) {
 				string += "Le mouvement à reproduire est : " + mouvementARepeter() + "\n";
 			} else {
 				string += "Il faut ajouter un mouvement\n";

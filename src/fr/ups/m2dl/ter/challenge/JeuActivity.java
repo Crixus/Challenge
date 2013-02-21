@@ -26,6 +26,7 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 		mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
 		super.onCreate(savedInstanceState);
+		MainActivity.__moteur.recapitulatifPartie();
 		afficherFenetre();
 	}
 
@@ -116,6 +117,7 @@ public class JeuActivity extends Activity implements SensorEventListener {
 			startActivity(intent);
 			finish();
 		}
+		MainActivity.__moteur.recapitulatifPartie();
 		afficherFenetre();
 	}
 
