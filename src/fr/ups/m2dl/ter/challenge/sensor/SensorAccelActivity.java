@@ -77,31 +77,7 @@ import android.util.Log;
 				double y = event.values[1];
 				double z = event.values[2];
 				
-			
-//				textview.setText("" + x + "\n" + y + "\n" + z);
 				checkMove ( x,  y,  z);
-//				
-//				if (x > 8) {
-//					TextView result = (TextView) findViewById(R.id.result);
-//					result.setText("Gauche");
-//					
-//				}
-//				
-//				if (x < -8) {
-//					TextView result = (TextView) findViewById(R.id.result);
-//					result.setText("Droite");
-//				}
-//				
-//				if (y > 8) {
-//					TextView result = (TextView) findViewById(R.id.result);
-//					result.setText("Bas");
-//				}
-//				
-//				if (y < -8) {
-//					TextView result = (TextView) findViewById(R.id.result);
-//					result.setText("Haut");
-//				}
-				
 			}
 		}
 
