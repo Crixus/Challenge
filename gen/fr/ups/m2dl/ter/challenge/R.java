@@ -15,16 +15,19 @@ public final class R {
         public static final int splash=0x7f020001;
     }
     public static final class id {
-        public static final int accelerometer=0x7f080006;
-        public static final int menu_quitter=0x7f080009;
-        public static final int menu_settings=0x7f080008;
-        public static final int result=0x7f080005;
-        public static final int splash=0x7f080007;
-        public static final int textViewAction=0x7f080001;
-        public static final int textViewEngMvt=0x7f080004;
-        public static final int textViewJoueur=0x7f080000;
-        public static final int textViewMvt=0x7f080002;
-        public static final int textViewRep=0x7f080003;
+        public static final int accelerometer=0x7f080009;
+        public static final int label_action=0x7f080001;
+        public static final int label_joueur=0x7f080000;
+        public static final int label_reprod=0x7f080002;
+        public static final int menu_quitter=0x7f08000c;
+        public static final int menu_settings=0x7f08000b;
+        public static final int result=0x7f080008;
+        public static final int splash=0x7f08000a;
+        public static final int textViewAction=0x7f080004;
+        public static final int textViewEngMvt=0x7f080007;
+        public static final int textViewJoueur=0x7f080003;
+        public static final int textViewMvt=0x7f080005;
+        public static final int textViewRep=0x7f080006;
     }
     public static final class layout {
         public static final int activity_game_over=0x7f030000;
