@@ -3,6 +3,7 @@ package fr.ups.m2dl.ter.challenge;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.TextView;
 
 public class JeuActivity extends Activity {
 	private int etat;
@@ -10,7 +11,8 @@ public class JeuActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_jeu);
+//		setContentView(R.layout.activity_jeu);
+		jouer();
 	}
 
 	@Override
@@ -30,7 +32,11 @@ public class JeuActivity extends Activity {
 				break;
 				
 			case 1:
-				MainActivity.__moteur.enregistrerMouvement();
+				setContentView(R.layout.activity_jeu_enregistrer);
+//				MainActivity.__moteur.enregistrerMouvement();
+//				TextView tvEnrg = (TextView) findViewById(R.id.textView1);
+//				tvEnrg.setText("Joueur " + MainActivity.__moteur.get_joueurActuel() + " " + "faites un movement");
+//				tvEnrg.setText(MainActivity.__moteur.get_mouvements());
 				break;
 			}
 		}
