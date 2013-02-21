@@ -170,6 +170,11 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		case R.id.menu_settings:
 			System.exit(RESULT_OK);
 			return true;
+		
+		case R.id.menu_settings2:
+			Intent intent = new Intent(JeuActivity.this, MenuPrincipalActivity.class);
+			startActivity(intent);
+			finish();
 		}
 		return false;
 	}

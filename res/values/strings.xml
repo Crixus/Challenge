@@ -4,6 +4,7 @@
     <string name="app_name">Challenge</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Quitter</string>
+    <string name="menu_settings2">Retour</string>
     <string name="title_activity_menu_principal">Menu Principal</string>
     <string name="mode_normal">Mode Normal</string>
     <string name="mode_expert">Mode Expert</string>
