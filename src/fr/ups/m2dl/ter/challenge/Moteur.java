@@ -119,22 +119,21 @@ public class Moteur {
 		_partieEnCours = false;
 	}
 	
-	public void recapitulatifPartie() {
+	public String recapitulatifPartie() {
 		String string = "";
 		if (!_partieEnCours) {
 			string += "La partie est terminée !";
 		} else {
 			string += "C'est au tour de joueur " + joueurActuel() + "\n";
-			string += "Il faut " + ((_etatJoueur == 1) ? "Ajouter un mouvement" : "Répeter les mouvements") + "\n";
 			string += "Les mouvements enregistrés sont : " + Arrays.toString(_mouvements.toArray()) + "\n";
+			string += "Il faut " + ((_etatJoueur == 1) ? "Ajouter un mouvement" : "Répeter les mouvements") + "\n";
 			if (_etatJoueur == 0) {
 				string += "Le mouvement à reproduire est : " + mouvementARepeter() + "\n";
-			} else {
-				string += "Il faut ajouter un mouvement\n";
 			}
 		}
 		System.out.println(string);
-		Log.v("INFO", string);				
+		Log.v("INFO", string);	
+		return string;
 	}
 
 }
