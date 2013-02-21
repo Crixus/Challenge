@@ -75,8 +75,13 @@ public class Moteur {
 		return mouvement;
 	}
 
-	public boolean repeterMouvements() throws InterruptedException {
-		Thread.sleep(3000);
+	public boolean repeterMouvements()  {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		/*int cpt = 0;
 		while (_mouvements.size() != 0) {
 			String mouvement = ""; // Detecte le mouvement TODO-Ludo

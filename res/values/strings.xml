@@ -13,5 +13,8 @@
     <string name="test_accelerometer">Test Accelerometre</string>
     <string name="quitter">Quitter</string>
     <string name="title_activity_game_over">GameOverActivity</string>
+    <string name="title_activity_jeu">JeuActivity</string>
+    <string name="enregisterMsg">Faites un mouvement</string>
+    <string name="repeterMsg">Répéter le mouvement</string>
 
 </resources>

@@ -42,6 +42,9 @@
             android:name="fr.ups.m2dl.ter.challenge.GameOverActivity"
             android:label="@string/title_activity_game_over" >
         </activity>
+        <activity
+            android:name="fr.ups.m2dl.ter.challenge.JeuActivity"
+            android:label="@string/title_activity_jeu" >
+        </activity>
     </application>
-
 </manifest>
