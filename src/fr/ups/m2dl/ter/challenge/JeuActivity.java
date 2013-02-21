@@ -75,21 +75,34 @@ public class JeuActivity extends Activity implements SensorEventListener {
 
 	public void afficherFenetre() {
 		_etat = MainActivity.__moteur.get_etatJoueur();
-		int joueur = MainActivity.__moteur.joueurActuel();
+		int joueur;
+		TextView tvJoueur;
+		TextView tvAction;
+		TextView tvMouvement;
 		switch(_etat) {
 		case 0:
-			setContentView(R.layout.activity_jeu_repeter);	
-			TextView tvRep = (TextView) findViewById(R.id.textViewRep);
-			tvRep.setText("Joueur " + joueur + " refaites le mouvement");
+			setContentView(R.layout.activity_jeu_enregistrer);	
+			joueur = MainActivity.__moteur.joueurActuel();
+			tvJoueur = (TextView) findViewById(R.id.textViewJoueur);
+			tvJoueur.setText("Joueur: " + joueur);
+			tvAction = (TextView) findViewById(R.id.textViewAction);
+			tvAction.setText("Action: Répéter");
+			
+			String mouvement = MainActivity.__moteur.mouvementARepeter();
+			tvMouvement = (TextView) findViewById(R.id.textViewMvt);
+		 	tvMouvement.setText("Movement: " + mouvement);
+
 			break;
 		case 1:
 			setContentView(R.layout.activity_jeu_enregistrer);
-			TextView tvEnr = (TextView) findViewById(R.id.textViewEng);
-			tvEnr.setText("Joueur " + joueur + " faites un mouvement");
+			joueur = MainActivity.__moteur.joueurActuel();
 			
-			String mouvement = MainActivity.__moteur.mouvementARepeter();
-			TextView tvEngMvt = (TextView) findViewById(R.id.textViewEngMvt);
-			tvEngMvt.setText(mouvement);
+			
+			tvJoueur = (TextView) findViewById(R.id.textViewJoueur);
+			tvJoueur.setText("Joueur: " + joueur);
+			tvAction = (TextView) findViewById(R.id.textViewAction);
+			tvAction.setText("Action: Enregistrer");
+
 			break;
 		}
 	}
