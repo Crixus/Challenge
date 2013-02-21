@@ -50,6 +50,16 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		return true;
 	}
 	
+	protected void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+	
+	protected void onPause() {
+        super.onPause();
+        mSensorManager.unregisterListener(this);
+    }
+	
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 		if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
@@ -133,6 +143,7 @@ public class JeuActivity extends Activity implements SensorEventListener {
 			_mp.start();
 			afficherFenetre();
 		}
+		MainActivity.__moteur.recapitulatifPartie();
 	}
 
 	@Override

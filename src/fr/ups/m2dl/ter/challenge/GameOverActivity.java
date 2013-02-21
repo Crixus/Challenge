@@ -23,14 +23,15 @@ public class GameOverActivity extends Activity {
 	}
 	
 	public void onClickButtonRejouer(View view) {
-		MainActivity.__moteur = new Moteur();
-		Intent intent = new Intent(GameOverActivity.this, MenuPrincipalActivity.class);
+		MainActivity.__moteur.lancerPartie(MainActivity.__moteur.is_expert());
+		Intent intent = new Intent(GameOverActivity.this, JeuActivity.class);
 		startActivity(intent);
 		finish();
 	}
 	
 	public void onClickButtonMenuPrincipal(View view) {
-		System.exit(RESULT_OK);
+		Intent intent = new Intent(GameOverActivity.this, MenuPrincipalActivity.class);
+		startActivity(intent);
 		finish();
 	}
 

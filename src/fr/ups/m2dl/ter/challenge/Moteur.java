@@ -24,6 +24,15 @@ public class Moteur {
 		_partieEnCours = false;
 		_mouvementEnCours = _mouvements.size();
 	}
+	
+	public void lancerPartie(boolean expert) {
+		_mouvements.clear();
+		_expert = expert;
+		_partieEnCours = true;
+		_joueurActuel = 0;
+		_joueurActuel = 0;
+		_etatJoueur = 1;
+	}
 
 	public boolean is_expert() {
 		return _expert;
@@ -64,15 +73,6 @@ public class Moteur {
 	public void set_etatJoueur(int _etatJoueur) {
 		this._etatJoueur = _etatJoueur;
 	}
-
-	public void lancerPartie(boolean expert) {
-		_mouvements.clear();
-		_mouvementEnCours = _mouvements.size();
-		_expert = expert;
-		_joueurActuel = 0;
-		_etatJoueur = 1;
-		_partieEnCours = true;
-	}
 	
 	public void prochainMouvement(String mouvement) {
 		if (_partieEnCours) {
@@ -82,7 +82,7 @@ public class Moteur {
 				enregistrerMouvement(mouvement);
 			}
 		} else {
-			Log.v("INFO", "PERDU !");
+			
 		}
 	}
 	

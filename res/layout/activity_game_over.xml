@@ -12,7 +12,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/quitter"
+        android:text="@string/menu_principal"
         android:onClick="onClickButtonMenuPrincipal" />
 
 </LinearLayout>
