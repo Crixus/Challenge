@@ -80,6 +80,7 @@ public class JeuActivity extends Activity implements SensorEventListener {
 	public void afficherFenetre() {
 		// Recuperer joueur
 		int joueur = MainActivity.__moteur.joueurActuel();
+		TextView tvReprod;
 		// Generer string label_joueur
 		String label_joueur = "Joueur " + joueur;
 		// Recuperer action
@@ -91,8 +92,12 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		if (action.equals("REPRODUIRE")) {
 			label_reprod = MainActivity.__moteur.mouvementARepeter();
 			//textView label_reprod
-			TextView tvReprod = (TextView) findViewById(R.id.label_reprod);
+			tvReprod = (TextView) findViewById(R.id.label_reprod);
 			tvReprod.setText(label_reprod);
+		}
+		else {
+			tvReprod = (TextView) findViewById(R.id.label_reprod);
+			tvReprod.setText("");
 		}
 		//textView label_joueur
 		TextView tvJoueur = (TextView) findViewById(R.id.label_joueur);
@@ -108,7 +113,7 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		System.out.println(mouvement);
 		MainActivity.__moteur.prochainMouvement(mouvement);
 		if (!MainActivity.__moteur.is_partieEnCours()) {
-			Intent intent = new Intent(JeuActivity.this, JeuActivity.class);
+			Intent intent = new Intent(JeuActivity.this, GameOverActivity.class);
 			startActivity(intent);
 			finish();
 		}
