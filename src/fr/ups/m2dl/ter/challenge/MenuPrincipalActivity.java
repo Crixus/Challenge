@@ -42,12 +42,6 @@ public class MenuPrincipalActivity extends Activity {
 	    _mp.start();
 	}
 	
-	public void onClickButtonSensorAccelerometerExemple(View view) {
-		Intent intent = new Intent(MenuPrincipalActivity.this, SensorAccelerometerExempleActivity.class);
-		startActivity(intent);
-		finish();
-	}
-	
 	public void onClickButtonPartieNormale(View view) {
 		MainActivity.__moteur.lancerPartie(false);
 		Intent intent = new Intent(MenuPrincipalActivity.this, JeuActivity.class);
