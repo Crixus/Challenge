@@ -1,11 +1,11 @@
 package fr.ups.m2dl.ter.challenge;
 
-
-
+import android.R;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class JeuActivity extends Activity implements SensorEventListener {
+	
+	MediaPlayer _mp;
 	
 	private boolean _estInitialise = false;
 	
@@ -116,7 +118,13 @@ public class JeuActivity extends Activity implements SensorEventListener {
 	}
 
 	public void mouvement(String mouvement) {
-		System.out.println(mouvement);
+		int random = 7;
+		//_mp = MediaPlayer.create(this, R.raw.)
+		//_mp = MediaPlayer.create(this);
+		//_mp.setLooping(true);
+		//_mp.start();
+		
+		
 		MainActivity.__moteur.prochainMouvement(mouvement);
 		if (!MainActivity.__moteur.is_partieEnCours()) {
 			Intent intent = new Intent(JeuActivity.this, GameOverActivity.class);
