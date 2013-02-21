@@ -26,7 +26,17 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 		finish();
 	}
-
+	
+	@Override
+	public void onPause() {
+		//rien pour le moment
+	}
+	
+	@Override
+	public void onResume() {
+		//rien pour le moment
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		return true;

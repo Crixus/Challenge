@@ -30,6 +30,18 @@ public class MenuPrincipalActivity extends Activity {
 		return true;
 	}
 	
+	@Override
+	public void onPause() {
+		super.onPause();
+		_mp.pause();
+	}
+	
+	@Override
+	public void onResume() {
+	    super.onResume();
+	    _mp.start();
+	}
+	
 	public void onClickButtonSensorAccelerometerExemple(View view) {
 		Intent intent = new Intent(MenuPrincipalActivity.this, SensorAccelerometerExempleActivity.class);
 		startActivity(intent);
