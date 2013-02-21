@@ -1,5 +1,6 @@
 package fr.ups.m2dl.ter.challenge.sensor;
 
+import fr.ups.m2dl.ter.challenge.MainActivity;
 import fr.ups.m2dl.ter.challenge.R;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -12,7 +13,7 @@ import android.view.Menu;
 import android.widget.TextView;
 import android.util.Log;
 
-	public class SensorAccelActivity extends Activity  implements SensorEventListener {
+	public class SensorAccelActivity extends Activity implements SensorEventListener {
 
 		private SensorManager mSensorManager;
 		private Sensor mSensor;
@@ -30,55 +31,34 @@ import android.util.Log;
 
 		public void onAccuracyChanged(Sensor sensor, int accuracy) {
 		}
-
-		private void checkMove(double x, double y, double z){
-			
-			if(pause) return;
-			
-			if (x > 8) {
-				currentMouvement = "Gauche";
-				Log.v("Mouvement changed", currentMouvement); 
-			}
-			
-			if (x < -8) {
-				currentMouvement = "Droite";
-				Log.v("Mouvement changed", currentMouvement);
-			}
-			
-			if (y > 8) {
-				currentMouvement = "Bas";
-				Log.v("Mouvement changed", currentMouvement);
-			}
-			
-			if (y < -8) {
-				currentMouvement = "Haut";
-				Log.v("Mouvement changed", currentMouvement);
-			}
-		}
-		
-		public String getMove(){
-			resetMove();
-			while(currentMouvement == "No Mouvement"){}
-			return currentMouvement;
-		}
-		
-		public void resetMove(){
-			currentMouvement = "No Mouvement";
-		}
 		
 		public void setPause(Boolean pause){
 			this.pause = pause;
 		}
 		
 		public void onSensorChanged(SensorEvent event) {
-			if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+			/*if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
 				
 				double x = event.values[0];
 				double y = event.values[1];
 				double z = event.values[2];
 				
-				checkMove ( x,  y,  z);
-			}
+				if (x > 8) {
+					return "Gauche";
+				}
+				
+				if (x < -8) {
+					return "Droite";
+				}
+				
+				if (y > 8) {
+					return "Bas";
+				}
+				
+				if (y < -8) {
+					return "Haut";
+				}
+			}*/
 		}
 
 	}
