@@ -27,14 +27,6 @@ import android.util.Log;
 			mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
 		}
 
-		@Override
-		public boolean onCreateOptionsMenu(Menu menu) {
-			// Inflate the menu; this adds items to the action bar if it is present.
-			getMenuInflater()
-			.inflate(R.menu.activity_sensor_magnetic_exemple, menu);
-			return true;
-		}
-
 		public void onAccuracyChanged(Sensor sensor, int accuracy) {
 		}
 
