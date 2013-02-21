@@ -1,6 +1,5 @@
 package fr.ups.m2dl.ter.challenge;
 
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
@@ -28,6 +27,24 @@ public class MenuPrincipalActivity extends Activity {
 		Intent intent = new Intent(MenuPrincipalActivity.this, SensorAccelerometerExempleActivity.class);
 		startActivity(intent);
 		finish();
+	}
+	
+	public void onClickButtonPartieNormale(View view) {
+		//MainActivity.__moteur.lancerPartie(false);
+		//Intent intent = new Intent(MenuPrincipalActivity.this, SensorAccelerometerExempleActivity.class);
+		//startActivity(intent);
+		//finish();
+	}
+	
+	public void onClickButtonPartieExpert(View view) {
+		//MainActivity.__moteur.lancerPartie(true);
+		//Intent intent = new Intent(MenuPrincipalActivity.this, SensorAccelerometerExempleActivity.class);
+		//startActivity(intent);
+		//finish();
+	}
+	
+	public void onClickButtonQuitter(View view) {
+		
 	}
 	
     public boolean onOptionsItemSelected(MenuItem item) {
