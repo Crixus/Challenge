@@ -38,6 +38,10 @@
             android:name="fr.ups.m2dl.ter.challenge.SensorAccelerometerExempleActivity"
             android:label="@string/title_activity_sensor_accelerometer_exemple" >
         </activity>
+        <activity
+            android:name="fr.ups.m2dl.ter.challenge.GameOverActivity"
+            android:label="@string/title_activity_game_over" >
+        </activity>
     </application>
 
 </manifest>

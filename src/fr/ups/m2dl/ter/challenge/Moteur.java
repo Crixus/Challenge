@@ -75,8 +75,9 @@ public class Moteur {
 		return mouvement;
 	}
 
-	public boolean repeterMouvements() {
-		int cpt = 0;
+	public boolean repeterMouvements() throws InterruptedException {
+		Thread.sleep(3000);
+		/*int cpt = 0;
 		while (_mouvements.size() != 0) {
 			String mouvement = ""; // Detecte le mouvement TODO-Ludo
 			if (!mouvement.equals(_mouvements.get(cpt))) {
@@ -85,7 +86,7 @@ public class Moteur {
 			}
 			cpt++;
 		}
-		_etatJoueur = 1;
+		_etatJoueur = 1;*/
 		return true;
 	}
 

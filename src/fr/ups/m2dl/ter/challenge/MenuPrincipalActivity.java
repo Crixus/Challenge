@@ -30,17 +30,17 @@ public class MenuPrincipalActivity extends Activity {
 	}
 	
 	public void onClickButtonPartieNormale(View view) {
-		//MainActivity.__moteur.lancerPartie(false);
-		//Intent intent = new Intent(MenuPrincipalActivity.this, SensorAccelerometerExempleActivity.class);
-		//startActivity(intent);
-		//finish();
+		MainActivity.__moteur.lancerPartie(false);
+		Intent intent = new Intent(MenuPrincipalActivity.this, JeuActivity.class);
+		startActivity(intent);
+		finish();
 	}
 	
 	public void onClickButtonPartieExpert(View view) {
-		//MainActivity.__moteur.lancerPartie(true);
-		//Intent intent = new Intent(MenuPrincipalActivity.this, SensorAccelerometerExempleActivity.class);
-		//startActivity(intent);
-		//finish();
+		MainActivity.__moteur.lancerPartie(true);
+		Intent intent = new Intent(MenuPrincipalActivity.this, JeuActivity.class);
+		startActivity(intent);
+		finish();
 	}
 	
 	public void onClickButtonQuitter(View view) {
