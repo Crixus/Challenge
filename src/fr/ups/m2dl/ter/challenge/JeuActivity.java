@@ -61,7 +61,11 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		super.onPause();
 		mSensorManager.unregisterListener(this);
 	}
-
+	public void onBackPressed(){
+		Intent intent = new Intent(JeuActivity.this, MenuPrincipalActivity.class);
+		startActivity(intent);
+		finish();
+	}
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 		if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
