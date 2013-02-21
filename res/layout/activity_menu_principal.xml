@@ -5,24 +5,21 @@
     android:background="@drawable/menu" >
     
     <Button
+        android:textColor="#FFFFFF"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/mode_normal"
         android:onClick="onClickButtonPartieNormale" />
     
     <Button
+        android:textColor="#FFFFFF"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/mode_expert"
         android:onClick="onClickButtonPartieExpert" />
     
     <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/test_accelerometer"
-        android:onClick="onClickButtonSensorAccelerometerExemple" />
-    
-    <Button
+        android:textColor="#FFFFFF"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/quitter"
