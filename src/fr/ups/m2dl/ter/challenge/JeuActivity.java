@@ -1,19 +1,13 @@
 package fr.ups.m2dl.ter.challenge;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,148 +15,147 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class JeuActivity extends Activity implements SensorEventListener {
+	
+	private SensorManager mSensorManager; // Sensor Manager
+	private Sensor mSensor; // Sensor (ACCELEROMETER)
+	private boolean _estInitialise = false; // L'utilisateur est revenu à la position environ plate
 
 	MediaPlayer _mp;
-
-	private boolean _estInitialise = false;
-
-	private SensorManager mSensorManager;
-	private Sensor mSensor;
-
-	private int _etat;
+	
+	private ImageView _fleche;
+	private TextView _tvJoueur;
+	private TextView _tvAction;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_jeu);
 
 		mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
 		mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 		mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
-		super.onCreate(savedInstanceState);
-		MainActivity.__moteur.recapitulatifPartie();
-		afficherFenetre();
+		
+		_fleche = (ImageView) findViewById(R.id.fleche);
+		_tvJoueur = (TextView) findViewById(R.id.label_joueur);
+		_tvAction = (TextView) findViewById(R.id.label_action);
+		
+		mettreAJourFenetre();
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		//		getMenuInflater().inflate(R.menu.activity_jeu, menu);
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.activity_jeu, menu);
 		return true;
 	}
 
+	@Override
 	protected void onResume() {
 		super.onResume();
 		mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
 	}
 
+	@Override
 	protected void onPause() {
 		super.onPause();
 		mSensorManager.unregisterListener(this);
 	}
+	
+	@Override
 	public void onBackPressed(){
 		Intent intent = new Intent(JeuActivity.this, MenuPrincipalActivity.class);
 		startActivity(intent);
 		finish();
 	}
+	
 	@Override
 	public void onSensorChanged(SensorEvent event) {
 		if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+			String mouvement; // Le mouvement effectué
 
-			double x = event.values[0];
-			double y = event.values[1];
-			double z = event.values[2];
+			double x = event.values[0]; // Recupération x
+			double y = event.values[1]; // Recupération y
 
-			String mouvement = "";
-
-			if (x > 7) {
-				mouvement = "Gauche";
-			} else if (x < -7) {
-				mouvement = "Droite";
-			} else if (y > 7) {
-				mouvement = "Bas";
-			} else if (y < -7) {
-				mouvement = "Haut";
-			}
-
-			if (!_estInitialise && x < 2 && x > -2 && y < 2 && y > -2) {
-				Log.v("INFO", "INITIALISATION !");
+			if (!_estInitialise && x < 2 && x > -2 && y < 2 && y > -2) { // Plat
 				_estInitialise = true;
+				mouvement = "Autre";
+			} else if (x > 7) { // Gauche
+				mouvement = "Gauche";
+			} else if (x < -7) { // Droite
+				mouvement = "Droite";
+			} else if (y > 7) { // Bas
+				mouvement = "Bas";
+			} else if (y < -7) { // Haut
+				mouvement = "Haut";
+			} else { // Autre
+				mouvement = "Autre";
 			}
 
-			if (!mouvement.equals("") && _estInitialise) {
-				_estInitialise = false;
-				mouvement(mouvement);
+			if (_estInitialise && !mouvement.equals("Autre")) {
+				// L'utilisateur est revenu plat
+				// L'utilisateur fait un mouvement intéressant (G, D, H, B)
+				_estInitialise = false; // Il devrait revenir plat
+
+				MainActivity.__moteur.prochainMouvement(mouvement); // Prise en compte mouvement dans moteur
+				
+				if (!MainActivity.__moteur.is_partieEnCours()) { // Si partie terminée (erreur)
+					// On joue le son erreur et passage à Game Over
+					_mp = MediaPlayer.create(this, R.raw.error);
+					_mp.start();
+					Intent intent = new Intent(JeuActivity.this, GameOverActivity.class);
+					startActivity(intent);
+					finish();
+				} else {
+					// On joue le son OK, on met à jour la fenetre
+					_mp = MediaPlayer.create(this, R.raw.beep_seven);
+					_mp.start();
+					mettreAJourFenetre();
+				}
+				
 			}
 		}
 	}
-
-	public void afficherFenetre() {
-		// Recuperer joueur
-		int joueur = MainActivity.__moteur.joueurActuel();
-		TextView tvReprod;
-		// Generer string label_joueur
-		String label_joueur = "Joueur " + joueur;
-		// Recuperer action
+	
+	public void mettreAJourFenetre() {
+		mettreAJourAction();
+		mettreAJourFleche();
+		mettreAJourLabelJoueur();
+	}
+	
+	public void mettreAJourAction() {
+		_tvAction.setText(MainActivity.__moteur.action());
+	}
+	
+	public void mettreAJourFleche() {
 		String action = MainActivity.__moteur.action();
-		// Generer string label_action
-		String label_action = action;
-		// Si reproduire : label_reprod = mouvement / label_reprod = ""
-		String label_reprod = "";
+		boolean expert = MainActivity.__moteur.is_expert();
 		
-		ImageView fleche = (ImageView) findViewById(R.id.fleche);
-
-		if (action.equals("REPRODUIRE") && !MainActivity.__moteur.is_expert()) {
-			fleche.setVisibility(0);
-			
-			int id = 0;
+		if (action.equals("REPRODUIRE") && !expert) {
 			String mouvementReprod = MainActivity.__moteur.mouvementARepeter();
 			
 			if (mouvementReprod.equals("Haut")) {
-				id = R.drawable.haut;
+				_fleche.setImageResource(R.drawable.haut);
 			} else if (mouvementReprod.equals("Bas")) {
-				id = R.drawable.bas;
+				_fleche.setImageResource(R.drawable.bas);
 			}else if (mouvementReprod.equals("Gauche")) {
-				id = R.drawable.gauche;
+				_fleche.setImageResource(R.drawable.gauche);
 			}else  {
-				id = R.drawable.droite;
+				_fleche.setImageResource(R.drawable.droite);
 			}
-			fleche.setImageResource(id);
+			_fleche.setVisibility(0);
 		}
 		else {
-			fleche.setVisibility(8);
+			_fleche.setVisibility(8);
 		}
-		//textView label_joueur
-		TextView tvJoueur = (TextView) findViewById(R.id.label_joueur);
-		tvJoueur.setText(label_joueur);
-		//textView label_action
-		TextView tvAction = (TextView) findViewById(R.id.label_action);
-		tvAction.setText(label_action);
-
-
 	}
-
-	public void mouvement(String mouvement) {		
-		MainActivity.__moteur.prochainMouvement(mouvement);
-		if (!MainActivity.__moteur.is_partieEnCours()) {
-			_mp = MediaPlayer.create(this, R.raw.error);
-			_mp.start();
-			Intent intent = new Intent(JeuActivity.this, GameOverActivity.class);
-			startActivity(intent);
-			finish();
-		} else {
-			_mp = MediaPlayer.create(this, R.raw.beep_seven);
-			_mp.start();
-			afficherFenetre();
-		}
-		MainActivity.__moteur.recapitulatifPartie();
+	
+	public void mettreAJourLabelJoueur() {
+		String label_joueur = "Joueur " + MainActivity.__moteur.joueurActuel();
+		_tvJoueur.setText(label_joueur);
 	}
 
 	@Override
 	public void onAccuracyChanged(Sensor arg0, int arg1) {
-		// TODO Auto-generated method stub
-
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -170,11 +163,11 @@ public class JeuActivity extends Activity implements SensorEventListener {
 		case R.id.menu_settings:
 			System.exit(RESULT_OK);
 			return true;
-		
 		case R.id.menu_settings2:
 			Intent intent = new Intent(JeuActivity.this, MenuPrincipalActivity.class);
 			startActivity(intent);
 			finish();
+			return true;
 		}
 		return false;
 	}
